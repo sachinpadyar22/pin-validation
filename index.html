@@ -40,7 +40,7 @@
                 {
                     document.getElementById("message").innerHTML=`Please provide password`.fontcolor('red').bold();
                     document.getElementById("hint").style.display="block";
-                        document.getElementById("hint2").style.display="block";
+                     
                 }
                 else
                 {
@@ -48,8 +48,7 @@
                         {
                             document.getElementById("message").innerHTML="Login Success".fontcolor('green').fontsize('5').bold();
                             document.getElementById("pin").value="";
-                            document.getElementById("hint").style.display="block";
-                        document.getElementById("hint2").style.display="block";
+                            document.getElementById("hint").style.display="block"; document.getElementById("hint2").style.display="block";
                             return;
                         }
                         
@@ -59,7 +58,7 @@
                         count-=1;
                         document.getElementById("pin").value="";
                         document.getElementById("hint").style.display="block";
-                        document.getElementById("hint2").style.display="block";
+                        
                         }
                         else
                         {
@@ -90,7 +89,7 @@
             </div>
             
             <div class=" text-center mb-4">
-                <span  id="hint2"><b>Password Hint==></b><br><span id="hint"><b> b-b-c-b</b></span></span>
+                <span  id="hint"><b>Password Hint==> b-b-c-b</b></span>
             </div>
         </div>
     </div>
