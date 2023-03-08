@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./shield (1).png" type="image/x-icon">
+    <title>Perfect PIN</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <style type="text/css">
+        .main {
+         
+           border: 1px solid black;
+        margin-right: 20%;
+        margin-left: 20%;
+        padding: 20px;
+        border-radius: 20px;
+            
+        }
+        .box{
+            width: 50%;
+            padding: 10px;
+            height: 350px;
+           
+        }
+    </style>
+    <script type="text/javascript">
+  var count=2;
+    function VerifyClick()
+    {
+            var password = document.getElementById("pin").value;
+            var ps = ["2232"]; 
+           
+            for (var i=0; i <ps.length; i++)
+            {
+                if(password==="")
+                {
+                    document.getElementById("message").innerHTML=`Please provide password`.fontcolor('red').bold();
+                    document.getElementById("hint").style.display="block";
+                        document.getElementById("hint2").style.display="block";
+                }
+                else
+                {
+                        if ((password == ps[i])) 
+                        {
+                            document.getElementById("message").innerHTML="Login Success".fontcolor('green').fontsize('5').bold();
+                            document.getElementById("pin").value="";
+                            document.getElementById("hint").style.display="block";
+                        document.getElementById("hint2").style.display="block";
+                            return;
+                        }
+                        
+                        if (count>=1) 
+                        {
+                        document.getElementById("message").innerHTML=`Incorrect Password ! ${count} Attempt(s) Left</b>`.fontcolor('red');
+                        count-=1;
+                        document.getElementById("pin").value="";
+                        document.getElementById("hint").style.display="block";
+                        document.getElementById("hint2").style.display="block";
+                        }
+                        else
+                        {
+                        document.getElementById("message").innerHTML="Your card has block Plz try again 2hr later".fontcolor('red').bold();
+                        document.getElementById("pin").value="";
+                        document.getElementById("pin").disabled=true;
+                        document.getElementById("submit").disabled=true;
+                        }
+                }
+                
+            }  
+            
+    }
+    </script>
+</head>
+<body class="container-fluid" onload="bodyload()">
+    
+    <div class="main d-flex justify-content-center align-items-center mt-5">
+        <div class="box">
+            <h2 class="text-center">Login Using Pin</h2>
+            <input type="password" class="form-control mt-4" id="pin" maxlength="4">
+            <div class="d-flex justify-content-center mt-4">
+                <button onclick="VerifyClick()" id="submit" class="btn btn-primary w-100">Login</button>
+            </div>
+            
+            <div class="d-flex justify-content-center mt-5 mb-3">
+                <p id="message"></p>
+            </div>
+            
+            <div class=" text-center mb-4">
+                <span  id="hint2"><b>Password Hint==></b><br><span id="hint"><b> b-b-c-b</b></span></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
